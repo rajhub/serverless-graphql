@@ -1,0 +1,26 @@
+.env*
+!.env.example
+
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+#temp files
+temp
+
+#.idea files
+.idea
+
+#build files
+.build
+dist
+
+#public
+public
+
+package-lock.json
+.env
+env.yml

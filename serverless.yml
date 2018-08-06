@@ -1,0 +1,19 @@
+service: sls-graphql
+
+plugins:
+  - serverless-plugin-typescript
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  profile: ck
+  memorySize: 128
+  stage: ${opt:stage, 'dev'}
+  environment: ${file(env.yml):${opt:stage, self:provider.stage}}
+
+functions:
+  service:
+    handler: src/handler.run
+    events:
+      - http: 'ANY /'
+      - http: 'ANY {proxy+}'
